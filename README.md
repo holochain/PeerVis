@@ -38,4 +38,8 @@ To add it to your app, do the following.
 ## How to use it
 When you're running your application, navigate to the localhost address of your app, plus the path `/peervis.html`. This will dynamically update and show you who how many other nodes are connected to your node, that the app will be gossiping with.
 
+## How it does this
+In order to know who else is online, it attempts to send a node to node message to each peer who has written to the DHT about their presence in the app. Within the peerVis zome, it adds an entry during `genesis` announcing their presence within the app. 
+So it uses the `send` method of the api, and listens for a response from other nodes. It does this at a regular interval.
+
 
